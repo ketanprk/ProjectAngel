@@ -1,0 +1,15 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <rotate
+                android:fromDegrees="125"
+        >
+            <shape
+                    android:shape="line"
+            >
+                <stroke
+                        android:width="2dp"
+                        android:color="@color/blue"/>
+            </shape>
+        </rotate>
+    </item>
+</layer-list>
