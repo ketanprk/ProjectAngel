@@ -58,4 +58,19 @@ public class TabAdapter extends FragmentStatePagerAdapter {
         tabTextView.setText(mFragmentTitleList.get(position));
         return view;
     }
+
+    public View getSelectedTabViewGraphFour(int position) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.selected_tab_layout_graph_four, null);
+        TextView tabTextView = view.findViewById(R.id.tabTextView);
+        tabTextView.setText(mFragmentTitleList.get(position));
+        tabTextView.setTextColor(ContextCompat.getColor(mContext, R.color.white));
+        return view;
+    }
+
+    public View getTabViewGraphFour(int position) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.custom_tab_graph_four, null);
+        TextView tabTextView = view.findViewById(R.id.tabTextView);
+        tabTextView.setText(mFragmentTitleList.get(position));
+        return view;
+    }
 }

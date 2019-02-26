@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:orientation="vertical"
+        android:background="@color/black"
         android:layout_height="match_parent"
 >
 
@@ -12,7 +13,7 @@
             android:id="@+id/mToolbar"
             android:padding="16dp"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
+            android:layout_height="76dp"
             android:background="@color/black"
             app:contentInsetEnd="0dp"
             app:contentInsetLeft="0dp"
@@ -33,27 +34,38 @@
                     android:layout_alignParentLeft="true"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_marginRight="60dp"
                     android:layout_gravity="center"
                     android:padding="5dp"
-                    android:background="@drawable/calendar"
+                    android:background="@drawable/menu_left"
             />
+            <LinearLayout android:layout_width="wrap_content"
+                          android:id="@+id/tv_title"
+                          android:gravity="center"
+                          android:layout_centerVertical="true"
+                          android:layout_centerInParent="true" android:layout_height="wrap_content">
+                <TextView
 
-            <TextView
-                    android:id="@+id/tv_title"
-                    android:layout_centerInParent="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="BITCOIN PRICE"
-                    android:textColor="@color/white"
-                    android:textSize="16sp"/>
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="ETHER"
+                        android:textColor="@color/blue"
+                        android:textSize="12sp"/>
+                <View android:layout_width="8dp"
+                      android:layout_marginLeft="5dp"
+                      android:background="@drawable/arrow_down" android:layout_height="4dp"
+                />
+            </LinearLayout>
 
             <ImageView
                     android:layout_alignParentRight="true"
                     android:id="@+id/im_notification"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_gravity="center"
                     android:padding="5dp"
                     android:background="@drawable/notifications"
@@ -62,139 +74,26 @@
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
-    <RelativeLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                    android:padding="25dp"
-                    android:background="@color/black">
-        <ImageView
-                android:id="@+id/im_ether"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:background="@drawable/currency_ether"
-        />
-        <LinearLayout android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:layout_below="@+id/im_ether"
-                      android:layout_marginTop="10dp"
-                      android:layout_centerHorizontal="true"
-                      android:orientation="horizontal">
-            <TextView
 
-                    android:id="@+id/tv_rate"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/blue"
-                    android:textStyle="bold"
-                    android:textSize="32sp"
-                    android:layout_height="wrap_content"
-                    tools:text="$ 4,290.01"
-            />
-            <TextView
-                    android:textColor="@color/red"
-                    android:layout_marginLeft="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="+ 1.37%"
-                    android:textSize="17sp"
-            />
-        </LinearLayout>
-    </RelativeLayout>
-
+    <android.support.v4.view.ViewPager
+            android:layout_below="@+id/mToolbar"
+            android:id="@+id/viewpager"
+            android:visibility="visible"
+            android:layout_above="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/black"/>
     <android.support.design.widget.TabLayout
             android:id="@+id/tabLayout"
+            android:layout_below="@+id/rl_rate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="?actionBarSize"
             app:tabGravity="fill"
-            app:tabIndicatorHeight="4dp"
+            android:layout_alignParentBottom="true"
+            app:tabIndicatorHeight="0dp"
             android:background="@color/black"
             app:tabMode="fixed">
     </android.support.design.widget.TabLayout>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:padding="25dp"
-                  android:gravity="center_vertical"
-                  android:background="@color/black">
-        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                      android:layout_weight="1"
-                      android:orientation="vertical">
-            <TextView
-                    android:id="@+id/tv_coinbase"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="Global Avg"
-                    android:textSize="12sp"
-                    android:textColor="@color/text_dark"
-            />
-            <TextView
-                    android:layout_below="@+id/tv_coinbase"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="17sp"
-                    android:layout_height="wrap_content"
-                    tools:text="$ 4,290.01"
-            />
-        </LinearLayout>
-        <View android:layout_width="41dp"
-              android:id="@+id/view_slash"
-              android:layout_toLeftOf="@+id/tv_value"
-              android:background="@drawable/line_diagnol" android:layout_height="70dp"/>
-        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                      android:layout_weight="1"
-                      android:orientation="vertical">
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="Market Cap"
-                    android:textSize="12sp"
-                    android:textColor="@color/text_dark"
-            />
-            <TextView
-                    android:layout_below="@+id/tv_coinbase"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="17sp"
-                    android:layout_height="wrap_content"
-                    tools:text="$ 80.7B"
-            />
-        </LinearLayout>
-        <View android:layout_width="41dp"
-              android:layout_toLeftOf="@+id/tv_value"
-              android:background="@drawable/line_diagnol" android:layout_height="70dp"/>
-        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content"
-                      android:layout_weight="1"
-                      android:orientation="vertical">
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    tools:text="Volume"
-                    android:textSize="12sp"
-                    android:textColor="@color/text_dark"
-            />
-            <TextView
-                    android:layout_below="@+id/tv_coinbase"
-                    android:layout_width="wrap_content"
-                    android:textColor="@color/white"
-                    android:textStyle="bold"
-                    android:textSize="17sp"
-                    android:layout_height="wrap_content"
-                    tools:text="$ 1.46B"
-            />
-        </LinearLayout>
-    </LinearLayout>
-    <RelativeLayout android:layout_width="match_parent"
-                    android:background="@color/black" android:layout_height="match_parent">
 
-        <android.support.design.widget.BottomNavigationView
-                android:id="@+id/bottom_navigation"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                app:itemBackground="@color/black"
-                app:itemIconTint="@color/white"
-                app:itemTextColor="@color/white"
-                app:menu="@menu/menu_bottom_bar"/>
-
-    </RelativeLayout>
-
-
-</LinearLayout>
+</RelativeLayout>
