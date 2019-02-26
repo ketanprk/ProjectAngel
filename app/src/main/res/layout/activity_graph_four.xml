@@ -55,8 +55,8 @@
                         android:textColor="@color/blue"
                         android:textSize="12sp"/>
                 <View android:layout_width="8dp"
-                      android:layout_marginLeft="5dp"
-                      android:background="@drawable/arrow_down" android:layout_height="4dp"
+                      android:layout_marginLeft="15dp"
+                      android:background="@drawable/shape" android:layout_height="4dp"
                 />
             </LinearLayout>
 

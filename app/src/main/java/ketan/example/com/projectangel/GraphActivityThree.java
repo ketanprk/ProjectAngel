@@ -9,37 +9,45 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-public class ActivityGraphFour extends AppCompatActivity {
+public class GraphActivityThree extends AppCompatActivity {
     private ActivityTabAdapter adapter;
     private TabLayout tabLayout;
     private ViewPager viewPager;
     Toolbar mToolbar;
     Context mContext;
     private int[] tabIcons = {
-            R.drawable.pie,
-            R.drawable.world,
-            R.drawable.exchange_1
+            R.drawable.chart,
+            R.drawable.wallet,
+            R.drawable.home, R.drawable.map_marker,
+            R.drawable.ic_layers
     };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_graph_four);
+        setContentView(R.layout.activity_graph_three);
         mContext = this;
-        tabLayout = findViewById(R.id.tabLayout);
+        tabLayout = findViewById(R.id.tabLayout_bottom);
         viewPager = findViewById(R.id.viewpager);
         mToolbar = findViewById(R.id.mToolbar);
+
 
         adapter = new ActivityTabAdapter(getSupportFragmentManager(), this);
         adapter.addFragment(new
 
-                FragmentActivityFour(), tabIcons[0]);
+                FragmentActivityThree(), tabIcons[0]);
         adapter.addFragment(new
 
-                FragmentActivityFour(), tabIcons[1]);
+                FragmentActivityThree(), tabIcons[1]);
         adapter.addFragment(new
 
-                FragmentActivityFour(), tabIcons[2]);
+                FragmentActivityThree(), tabIcons[2]);
+        adapter.addFragment(new
+
+                FragmentActivityThree(), tabIcons[3]);
+        adapter.addFragment(new
+
+                FragmentActivityThree(), tabIcons[4]);
 
 
         viewPager.setAdapter(adapter);
@@ -61,11 +69,10 @@ public class ActivityGraphFour extends AppCompatActivity {
             public void onPageScrollStateChanged(int state) {
             }
         });
-
         mToolbar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(mContext, GraphActivityThree.class));
+                startActivity(new Intent(mContext, ActivityGraphFour.class));
                 finish();
             }
         });

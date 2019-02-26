@@ -51,6 +51,7 @@ public class ActivityTabAdapter extends FragmentStatePagerAdapter {
         TextView tabTextView = view.findViewById(R.id.tabTextView);
         ImageView tabImageView = view.findViewById(R.id.tabImageView);
         tabImageView.setImageResource(mFragmentIconList.get(position));
+        tabImageView.setColorFilter(ContextCompat.getColor(mContext, R.color.text_dark), PorterDuff.Mode.SRC_ATOP);
         return view;
     }
 
